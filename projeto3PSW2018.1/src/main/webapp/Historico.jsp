@@ -6,6 +6,7 @@
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.cefetrj.br.projeto3psw2018.model.Aluno"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,11 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Histórico</title>
     </head>
-    <body>
-    <%
-        ArrayList<Aluno> alunos = (ArrayList<Aluno>) request.getServletContext().getAttribute("alunos");
-
-    %>        
+    <body>        
         <table border="1">
             <tr>
                 <td>Nome</td>
@@ -28,20 +25,17 @@
                 <td>Prova Final</td>
                 <td>Situação</td>
             </tr>
-    <%               
-            for (int i = 0; i < alunos.size(); i++) {
-    %>
+            <core:forEach items="${applicationScope.alunos}" var="aluno">
                 <tr>
-                    <td><%= alunos.get(i).getName()%></td>
-                    <td><%= alunos.get(i).getFrequency()%></td>
-                    <td><%= alunos.get(i).getNota1()%></td>
-                    <td><%= alunos.get(i).getFinalWork()%></td>
-                    <td><%= alunos.get(i).getClassProject()%></td>
-                    <td><%= alunos.get(i).getpF()%></td>
-                    <td><%= alunos.get(i).situation()%></td>
+                    <td>${aluno.name}</td>
+                    <td>${aluno.frequency}</td>
+                    <td>${aluno.nota1}</td>
+                    <td>${aluno.finalWork}</td>
+                    <td>${aluno.classProject}</td>
+                    <td>${aluno.pF}</td>
+                    <td>${aluno.situation()}</td>
                 </tr>
-    <%      }
-    %>
+            </core:forEach>
         </table>
     </body>
 </html>
