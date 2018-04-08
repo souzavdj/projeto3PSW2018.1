@@ -8,7 +8,7 @@ package com.cefetrj.br.projeto3psw2018.model;
 /**
  * Classe modelo para Alunos. 
  * @author vinicius
- * @version 2.0
+ * @version 3.0
  */
 public class Aluno {
     
@@ -16,6 +16,11 @@ public class Aluno {
      * Atributo name é do tipo String e é responsável por armazenar o nome do Aluno.
      */
     private String name;
+    
+    /**
+     * Atributo disciplina é do tipo String e é responsável por armazenar o disciplina do Aluno.
+     */
+    private String disciplina;
     
     /**
      * Atributo frequency é do tipo double e é responsável por armazenar a frequência do Aluno.
@@ -62,15 +67,17 @@ public class Aluno {
     /**
      * Contrutor com todos os atributos.
      * @param name variável String com o nome do Aluno
+     * @param disciplina variável String com a disciplina do Aluno
      * @param frequency variável double com a frequência do Aluno na disciplina em porcentagem
      * @param nota1 variável double com a nota da primeira prova do aluno
      * @param finalWork variável double com a nota do trabalho final do aluno
      * @param classProject variável double com a nota dos trabalhos em sala feitos pelo aluno 
      * @param pF variável double com a nota da prova final do aluno
      */
-    public Aluno(String name, double frequency, double nota1, double finalWork, double classProject, double pF) {
+    public Aluno(String name, String disciplina, double frequency, double nota1, double finalWork, double classProject, double pF) {
         super();
         this.name = name;
+        this.disciplina = disciplina;
         this.frequency = frequency;
         this.nota1 = nota1;
         this.finalWork = finalWork;
@@ -92,6 +99,22 @@ public class Aluno {
      */
     public void setName(String name) {
         this.name = name;
+    }
+    
+    /**
+     * Método que retorna o disciplina do aluno.
+     * @return o atributo {@link #disciplina}
+     */
+    public String getDisciplina() {
+        return disciplina;
+    }
+    
+    /**
+     * Método para atribuir valor ao atributo disciplina.
+     * @param disciplina variável com o disciplina a ser inserido no atributo {@link #disciplina}
+     */
+    public void setDisciplina(String disciplina) {
+        this.disciplina = disciplina;
     }
     
     /**

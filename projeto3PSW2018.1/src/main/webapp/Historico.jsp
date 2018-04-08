@@ -12,30 +12,46 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" >
         <title>Histórico</title>
     </head>
     <body>        
-        <table border="1">
-            <tr>
-                <td>Nome</td>
-                <td>Frequência</td>
-                <td>Prova 1</td>
-                <td>Trabalho Final</td>
-                <td>Trabalhos de Aula</td>
-                <td>Prova Final</td>
-                <td>Situação</td>
-            </tr>
-            <core:forEach items="${applicationScope.alunos}" var="aluno">
+        <table border="1" class="table table-striped">
+            <thead>
                 <tr>
-                    <td>${aluno.name}</td>
-                    <td>${aluno.frequency}</td>
-                    <td>${aluno.nota1}</td>
-                    <td>${aluno.finalWork}</td>
-                    <td>${aluno.classProject}</td>
-                    <td>${aluno.pF}</td>
-                    <td>${aluno.situation()}</td>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Disciplina</th>
+                    <th scope="col">Frequência</th>
+                    <th scope="col">Prova 1</th>
+                    <th scope="col">Trabalho Final</th>
+                    <th scope="col">Trabalhos de Aula</th>
+                    <th scope="col">Prova Final</th>
+                    <th scope="col">Situação</th>
                 </tr>
-            </core:forEach>
+            </thead>
+            <tbody>
+                <core:forEach items="${applicationScope.alunos}" var="aluno" varStatus="status">
+                    <tr>
+                        <th scope="row">${status.count}</th>
+                        <td>${aluno.name}</td>
+                        <td>${aluno.disciplina}</td>
+                        <td>${aluno.frequency}</td>
+                        <td>${aluno.nota1}</td>
+                        <td>${aluno.finalWork}</td>
+                        <td>${aluno.classProject}</td>
+                        <td>${aluno.pF}</td>
+                        <td>${aluno.situation()}</td>
+                    </tr>
+                </core:forEach>
+            </tbody>
         </table>
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="js/jquery-3.2.1.slim.min.js" ></script>
+        <script src="js/popper.min.js" ></script>
+        <script src="js/bootstrap.min.js" ></script>
     </body>
 </html>
