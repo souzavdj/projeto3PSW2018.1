@@ -13,7 +13,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.log4j.Logger;
 
 /**
  *  Classe Servlet responsável referente ao JSP Formulario.
@@ -51,8 +50,6 @@ public class ServletFormulario extends HttpServlet {
             isValidity = "is-invalid";
             request.setAttribute("isValidityName", isValidity);
             String msgErrName = "O nome não pode ficar vazio e não pode ter menos de 3 caracteres.";
-            Logger lg = Logger.getLogger(ServletFormulario.class);
-            lg.info("Campo nome não preenchido!"); //aqui tem que entrer o log, veja no código da primeira aula.
             request.setAttribute("msgErrName", msgErrName);
         }else {
             isValidity = "is-valid";

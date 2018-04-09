@@ -39,8 +39,9 @@ public class TodosFiltrosFilter implements Filter {
             chain.doFilter(request, response);
         }catch(Exception e){
             Logger lg = Logger.getLogger(TodosFiltrosFilter.class);
-            lg.info(e.getMessage()); //aqui tem que entrer o log, veja no código da primeira aula.
-            request.getRequestDispatcher("/error.html").forward(request, response);
+            lg.info(e.toString()); //aqui tem que entrer o log, veja no código da primeira aula.
+            request.setAttribute("erro", e.toString());
+            request.getRequestDispatcher("/Erro.jsp").forward(request, response);
         }
     }
 
