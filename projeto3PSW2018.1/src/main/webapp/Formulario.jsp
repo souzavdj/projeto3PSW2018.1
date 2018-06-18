@@ -4,7 +4,6 @@
     Author     : vinicius
 --%>
 
-<%@page import="com.cefetrj.br.projeto3psw2018.model.Aluno"%>
 <%@taglib prefix="selects" uri="WEB-INF/selects.tld"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

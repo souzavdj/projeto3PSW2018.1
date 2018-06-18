@@ -3,18 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cefetrj.br.projeto3psw2018.model;
+package com.cefetrj.br.projeto3psw2018.model.entity;
+
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * Classe modelo para Alunos. 
  * @author vinicius
  * @version 3.0
  */
-public class Aluno {
+@Entity
+public class Aluno implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     /**
      * Atributo name é do tipo String e é responsável por armazenar o nome do Aluno.
      */
+    @Id
     private String name;
     
     /**

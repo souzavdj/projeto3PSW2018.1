@@ -5,9 +5,13 @@
  */
 package com.cefetrj.br.projeto3psw2018.view;
 
-import com.cefetrj.br.projeto3psw2018.model.Aluno;
+import com.cefetrj.br.projeto3psw2018.control.AlunoController;
+import com.cefetrj.br.projeto3psw2018.model.entity.Aluno;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -170,7 +174,7 @@ public class ServletFormulario extends HttpServlet {
         
         if (validity) {
             Aluno aluno = new Aluno(name, disciplina, frequency, nota1, finalWork, classProject, pF);
-            ArrayList<Aluno> alunos = new ArrayList<Aluno> ();
+            /*ArrayList<Aluno> alunos = new ArrayList<Aluno> ();
             if (request.getServletContext().getAttribute("alunos")==null) {
                 alunos.add(aluno);
                 request.getServletContext().setAttribute("alunos", alunos);
@@ -179,6 +183,9 @@ public class ServletFormulario extends HttpServlet {
                 alunos.add(aluno);
                 request.getServletContext().setAttribute("alunos", alunos);
             }
+            */
+            AlunoController.inserir(aluno);
+            
             request.getRequestDispatcher("Historico.jsp").forward(request, response);
         }else {
             request.getRequestDispatcher("Formulario.jsp").forward(request, response);

@@ -5,7 +5,8 @@
 --%>
 
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.cefetrj.br.projeto3psw2018.model.Aluno"%>
+<%@page import="com.cefetrj.br.projeto3psw2018.model.entity.Aluno"%>
+<%@page import="com.cefetrj.br.projeto3psw2018.control.AlunoController"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,7 +33,7 @@
                 </tr>
             </thead>
             <tbody>
-                <core:forEach items="${applicationScope.alunos}" var="aluno" varStatus="status">
+                <core:forEach items="${AlunoController.buscarTodos()}" var="aluno" varStatus="status">
                     <tr>
                         <th scope="row">${status.count}</th>
                         <td>${aluno.name}</td>
